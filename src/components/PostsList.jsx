@@ -6,61 +6,38 @@ import Modal from './Modal';
 import classes from './PostsList.module.css';
 
 function PostsList({isPosting, onStopPosting}) {
-    const [enteredBody, setEnteredBody] = useState('');
-    const [enteredAuthor, setEnteredAuthor] = useState('');
+    const [posts, setPosts] = useState([]);
 
-    function bodyChangeHandler(event) {
-        setEnteredBody(event.target.value);
+    function addPostHandler(postData) {
+        // Rule: Never mutate state directly 
+        // Explanation: If you update state and the new state is based on the previous state, use the function form of setState
+        setPosts((existingPosts) => [postData, ...existingPosts]);
     }
-    function authorChangeHandler(event) {
-        setEnteredAuthor(event.target.value);
-    }
-
-    // Method 2
-    // let modalContent;
-    // if (modalIsVisible) {
-    //     modalContent = (
-    //         <Modal onClose={hideModalHandler}>
-    //             <NewPost 
-    //                 onBodyChange={bodyChangeHandler} 
-    //                 onAuthorChange={authorChangeHandler} 
-    //             />
-    //         </Modal>
-    //     );
-    // }
 
     return (
         <>
-        {/* Method 1 */}
-        {/* {modalIsVisible ? (
-            <Modal onClose={hideModalHandler}>
-                <NewPost 
-                    onBodyChange={bodyChangeHandler} 
-                    onAuthorChange={authorChangeHandler} 
-                />
-            </Modal>
-        ) : false} */}
-
-        {/* Method 2  continuation*/}
-        {/* {modalContent} */}
-
         {/* Method 3 (truthy & falsy value)*/}
         {isPosting && (
             <Modal onClose={onStopPosting}>
                 <NewPost 
-                    onBodyChange={bodyChangeHandler} 
-                    onAuthorChange={authorChangeHandler} 
+                    onCancel={onStopPosting}
+                    onAddPost={addPostHandler}
                 />
             </Modal>
         )}
-
-        <ul className={classes.posts}>
-            <Post author={enteredAuthor} body={enteredBody} />  
-            <Post author="Manuel" body="I'm learning it as well" />
-        </ul>
+        {posts.length > 0 && (
+            <ul className={classes.posts}>
+            {posts.map((post) => <Post key={post.body} author={post.author} body={post.body} />)}
+            </ul>
+        )}
+        {posts.length === 0 && (
+            <div style={{ textAlign: 'center', color: 'white' }}>
+                <h2>There are no posts yet.</h2>
+                <p>Be the first to post something!</p>
+            </div>
+        )}
         </>
     )
 }
 
 export default PostsList;
-
