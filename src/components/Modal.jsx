@@ -1,0 +1,16 @@
+import classes from './Modal.module.css';
+
+//Instead of using pros. you can use object destructuring to get the children prop directly.
+//The NewPost component is passed as a child to the Modal component.
+function Modal({ children }) {
+    return (
+    <>
+    <div className={classes.backdrop} />
+    <dialog open="true" className={classes.modal}>
+        {children}
+    </dialog>
+    </>
+    );
+}
+
+export default Modal;
