@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import NewPost from './NewPost';
 import Post from './Post';
@@ -8,9 +8,24 @@ import classes from './PostsList.module.css';
 function PostsList({isPosting, onStopPosting}) {
     const [posts, setPosts] = useState([]);
 
+    //UseEffect is a hook that allows you to run code when a component is rendered for the first time or when a component is re-rendered
+    // It accepts 2 arguments: a function and an array of dependencies
+    // The function returns a cleanup function that runs before the next time the effect runs (it should not return a promise)
+    // The array of dependencies is optional. If you pass an empty array, the effect will only run once when the component is rendered for the first time
+    useEffect(() => {
+        async function fetchPosts() {
+            const response = await fetch('http://localhost:8085/posts');
+            const resData = await response.json();
+            setPosts(resData.posts);
+        }
+        
+        fetchPosts();
+    }, []);
+
+
     function addPostHandler(postData) {
         //  We configure this request because by default fetch sends a get request 
-        fetch('http://localhost:8080/posts', {
+        fetch('http://localhost:8085/posts', {
             method: 'POST',
             body: JSON.stringify(postData), 
             headers: {
