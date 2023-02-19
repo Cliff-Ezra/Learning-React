@@ -1,16 +1,1 @@
-{
-  "posts": [
-    {
-      "body": "This is a new post",
-      "author": "Ezra",
-      "id": "0.12430343183994386"
-    },
-    { "body": "Test post", "author": "Alfred", "id": "0.506857824060204" },
-    { "body": "Dummy Text", "author": "Zizu", "id": "0.41898816030852193" },
-    {
-      "body": "I'm glad you're learning React!",
-      "author": "Maximilian",
-      "id": "post-1"
-    }
-  ]
-}
+{"posts":[{"body":"Creed III","author":"Michael","id":"0.8390085512328458"},{"body":"This is a new post","author":"Ezra","id":"0.12430343183994386"},{"body":"Test post","author":"Alfred","id":"0.506857824060204"},{"body":"Dummy Text","author":"Zizu","id":"0.41898816030852193"},{"body":"I'm glad you're learning React!","author":"Maximilian","id":"post-1"}]}

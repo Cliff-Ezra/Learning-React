@@ -6,6 +6,7 @@ import "./index.css";
 import Posts, { loader as postsLoader } from "./routes/Posts";
 import NewPost, { action as newPostAction } from "./routes/NewPost";
 import RootLayout from "./routes/RootLayout";
+import PostDetails, { loader as postDetailsLoader } from "./routes/PostDetails";
 
 const router = createBrowserRouter([
   {
@@ -19,8 +20,14 @@ const router = createBrowserRouter([
           { path: "/create-post", 
             element: <NewPost />, 
             action: newPostAction
+          }, 
+          {
+            path: '/:postId',   //:id is a dynamic segment/route
+            element: <PostDetails />, 
+            loader: postDetailsLoader
           }
-        ] }
+        ],
+      }
     ],
   },
 ]);
