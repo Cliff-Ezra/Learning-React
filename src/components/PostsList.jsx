@@ -6,20 +6,6 @@ import Post from "./Post";
 function PostsList() {
     const posts = useLoaderData();
 
-  function addPostHandler(postData) {
-    //  We configure this request because by default fetch sends a get request
-    fetch("http://localhost:8085/posts", {
-      method: "POST",
-      body: JSON.stringify(postData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    // Rule: Never mutate state directly
-    // Explanation: If you update state and the new state is based on the previous state, use the function form of setState
-    setPosts((existingPosts) => [postData, ...existingPosts]);
-  }
-
   return (
     <>
 

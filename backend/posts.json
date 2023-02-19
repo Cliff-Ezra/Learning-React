@@ -1,5 +1,10 @@
 {
   "posts": [
+    {
+      "body": "This is a new post",
+      "author": "Ezra",
+      "id": "0.12430343183994386"
+    },
     { "body": "Test post", "author": "Alfred", "id": "0.506857824060204" },
     { "body": "Dummy Text", "author": "Zizu", "id": "0.41898816030852193" },
     {
