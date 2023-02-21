@@ -1,6 +1,6 @@
 # About ReactJS
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+React isa declarative JavaScript library for building user interfaces. It is used for handling the view layer for web and mobile apps. React also allows us to create reusable UI components.
 
 ## React Poster Project
 
