@@ -15,11 +15,11 @@ I also learned how React Router can help with data loading and data submission.
 
 - Create a new post
 
-![Create Post](/readme_resources/create.png)
+![Create Post](/readme-resources/create.png)
 
 - View all posts created
 
-![Create Post](/readme_resources/Posts.png)
+![Create Post](/readme-resources/Posts.png)
 
 ## Installations (MacOS)
 
