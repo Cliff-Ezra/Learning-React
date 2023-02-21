@@ -40,6 +40,14 @@ The other dependancies are:
 
 4. Run the application
 
+First run the follwoing command to start the React application
+
 ```bash
 npm run dev
+```
+
+Secondly, run the following command to start the JSON server
+
+```bash
+npm start
 ```
